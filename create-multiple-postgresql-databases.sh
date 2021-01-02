@@ -10,6 +10,8 @@ function create_user_and_database() {
 	    CREATE USER "$database" PASSWORD '$POSTGRES_PASSWORD';
 	    CREATE DATABASE "$database";
 	    GRANT ALL PRIVILEGES ON DATABASE "$database" TO "$database";
+	    \c $database
+	    CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 EOSQL
 }
 
